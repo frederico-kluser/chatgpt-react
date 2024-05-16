@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 
-interface Props {
-  key: string;
-}
-
-const useLocalStorage = ({ key }: Props) => {
+const useLocalStorage = (key: string) => {
   const [value, setValue] = useState<string | null>(null);
 
   const updateValue = () => {
