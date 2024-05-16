@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
     null
   );
 
-  const isMyLove = () => user === "claudia";
+  const isMyLove = () => user === process.env.PASSWORD?.split(",")[0];
 
   useEffect(() => {
     const darkMode = localStorage.getItem(DARK_MODE);
