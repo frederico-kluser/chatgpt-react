@@ -26,6 +26,7 @@ export default async function handler(req: NextRequest, res: NextResponse) {
     model: process.env.MODEL || "gpt-3.5-turbo",
     messages: body.messsages,
     stream: true,
+    temperature: 0.2,
   };
 
   const stream = await Stream(payload);
