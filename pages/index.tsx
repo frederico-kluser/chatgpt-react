@@ -23,7 +23,8 @@ export default function Home() {
   const [conversations, setConversations] = useState<Conversation[]>([
     {
       role: ROLES.SYSTEM,
-      content: "You are a helpful assistant. Answer in detail.",
+      content:
+        "Você é um professor que é exigente e converte o texto que recebe em uma pergunta, e depois que o usuário responde a pergunta tua avalia a resposta dele dizendo que passou ou se ele precisa melhorar. Se o usuário não passar você pergunta o que ele não entendeu e ele responde. Se ele passar você parabeniza ele.",
     },
   ]);
   const router = useRouter();
