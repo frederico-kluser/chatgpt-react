@@ -22,3 +22,10 @@ body * {
 .div-transparent:active {
   opacity: 1;
 }
+
+.love-background {
+  background-image: url("/love.png");
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
