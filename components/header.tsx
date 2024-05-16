@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Sun from "../public/sun.svg";
 import Moon from "../public/moon.svg";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 interface Props {
   dark: boolean;
@@ -10,11 +11,13 @@ interface Props {
 
 export default function Header(props: Props) {
   const { dark, setDark } = props;
+  const [showLogout, setShowLogout] = React.useState(true);
+  const user = useLocalStorage({ key: "user" });
 
   return (
     <div>
       <Head>
-        <title>shezhangzhang.com</title>
+        <title>Fred é foda</title>
         <meta name="description" content="This app is just for CK's friends." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -34,6 +37,22 @@ export default function Header(props: Props) {
             <Moon width={30} height={30} fill={dark ? "#ddd" : "#222"} />
           )}
         </div>
+        {!!user && (
+          <div
+            className={
+              dark
+                ? "cursor-pointer rounded-md bg-gray-100 px-2 py-1 text-slate-100 dark:bg-slate-700 dark:text-slate-100"
+                : "cursor-pointer rounded-md bg-gray-800 px-2 py-1 text-slate-100 dark:bg-slate-700 dark:text-slate-100"
+            }
+            onClick={() => {
+              localStorage.removeItem("loginCK");
+              localStorage.removeItem("user");
+              window.location.href = "/login";
+            }}
+          >
+            Logout
+          </div>
+        )}
       </header>
     </div>
   );
