@@ -21,9 +21,13 @@ export default function Login() {
         throw Error(res.statusText);
       }
 
-      const data = await res.json();
+      const data = (await res.json()) as {
+        result: boolean;
+        user: string;
+      };
       if (data && data?.result) {
         localStorage.setItem(LOGIN_CK, window.btoa(input));
+        localStorage.setItem("user", data.user);
         router.replace("/");
       } else {
         setInput("");

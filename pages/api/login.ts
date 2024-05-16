@@ -12,8 +12,9 @@ export default async function handler(
 
   if (query?.password) {
     const passwords = process.env.PASSWORD?.split(",");
-    if (passwords && passwords.includes(query.password.toString())) {
-      res.status(200).json({ result: true });
+    const user = query.password.toString() || "";
+    if (passwords && passwords.includes(user)) {
+      res.status(200).json({ result: true, user });
     } else {
       res.status(200).json({ result: false });
     }
