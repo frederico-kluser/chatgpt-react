@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 body * {
   @apply transition-colors duration-100;
 }
@@ -12,4 +11,14 @@ body * {
     list-style: revert;
     list-style-position: inside;
   }
+}
+
+.div-transparent {
+  opacity: 0;
+  transition: color 0.3s ease;
+}
+
+.div-transparent:hover,
+.div-transparent:active {
+  opacity: 1;
 }

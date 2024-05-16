@@ -14,6 +14,11 @@ interface Props {
   saving: boolean;
 }
 
+const userCssClasses =
+  "bg-white text-slate-800 dark:bg-slate-700 dark:text-slate-100 div-transparent";
+const AiCssClasses =
+  "bg-gray-100 text-slate-800 dark:bg-slate-800 dark:text-slate-100";
+
 export default function Chat(props: Props) {
   const { conversations, saving } = props;
   const bottomRef = useRef<null | HTMLDivElement>(null);
@@ -73,9 +78,7 @@ export default function Chat(props: Props) {
                 <div
                   key={index}
                   className={`w-full px-4 py-5 text-slate-100 ${
-                    item.role === ROLES.USER
-                      ? "bg-white text-slate-800 dark:bg-slate-700 dark:text-slate-100"
-                      : "bg-gray-100 text-slate-800 dark:bg-slate-800 dark:text-slate-100"
+                    item.role === ROLES.USER ? userCssClasses : AiCssClasses
                   }`}
                 >
                   <div className="flex items-start">
